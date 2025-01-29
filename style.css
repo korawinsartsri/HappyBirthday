@@ -155,3 +155,4 @@ body{
     transform: rotate(90deg);
     transition-delay: 0.2s;
 }
+-webkit-appearance: none;
