@@ -173,7 +173,7 @@ content: '';
 /* When opening, bring the letter up after flap finishes */
 .envelope-wrapper.flap > .envelope > .letter {
     z-index: 2; /* Move letter on top AFTER flap opens */
-    bottom: 180px;
+    bottom: 230px;
     transform: scale(1.58);
     transition-delay: 0.6s; /* Delay to allow flap to move first */
 }
