@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Happy Birthday</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+    </style>
+    <body>
+        <div class="container">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="letter">
+                        <div class="text">
+                            <h2 class="heading">Happy Birthday 🎂</h2>
+                            <p>
+                                ทดสอบงับ สุขสันต์วันเกิดงับ อิอิ
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart"></div>
+            </div>
+        </div>
+        <script>
+            /*const envelope = document.querySelector('.envelope-wrapper');
+            envelope.addEventListener('click', () => {
+                envelope.classList.toggle('flap');
+            });*/
+            const envelope = document.querySelector('.envelope-wrapper');
+            const heart = document.querySelector('.heart');
+
+            heart.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            });
+        </script>
+    </body>
+</html>
