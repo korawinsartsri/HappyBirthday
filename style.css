@@ -1,0 +1,207 @@
+:root{
+    --primary: #fff;
+    --bg-color: rgb(5,53,61);
+    --bg-envelope-color: #FFAFCC;
+    --envelope-tab: #FFC8DD;
+    --envelope-cover: #FFAFCC;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --txt-color: #444;
+    --heart-color: rgb(252, 8 ,231);
+}
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: #CDB4DB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+}
+.container{
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    position: relative;
+    animation: bounce 4s infinite;
+}
+.container > .envelope-wrapper{
+    background: var(--bg-envelope-color);
+    box-shadow: 0 0 40px var(--shadow-color);
+    border-radius: 15px;
+}
+.container > .envelope-wrapper > .envelope{
+    position: relative;
+    width: 300px;
+    height: 230px;
+    border-radius: 15px;
+}
+.container > .envelope-wrapper > .envelope::before{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    border-top: 130px solid var(--envelope-tab);
+    border-right: 150px solid transparent;
+    border-left: 150px solid transparent;
+    top: 0;
+    transform-origin: top;
+    transition: all 0.5s ease-in-out 0.7s;
+    border-radius: 15px;
+}
+.container > .envelope-wrapper > .envelope::after{
+    content: '';
+    position: absolute;
+    z-index: 2;
+    border-top: 130px solid transparent;
+    border-left: 150px solid var(--envelope-cover);
+    border-right: 150px solid var(--envelope-cover);
+    border-bottom: 100px solid var(--envelope-cover);
+    bottom: 0;
+    border-radius: 15px;
+}
+.envelope-wrapper::before{
+content: '';
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .3);
+    top: 580px;
+    left: -15px;
+    animation: scale 4s linear infinite;
+}
+.letter {
+  /* Styles for the closed state */
+  transform: rotate(0deg);
+  /* Other styles */
+}
+
+.letter.open {
+  /* Styles for the open state */
+  transform: rotate(180deg);
+  /* Other styles */
+}
+.letter {
+    position: absolute;
+    right: 23%;
+    bottom: 0; /* Start at bottom */
+    width: 54%;
+    height: 80%;
+    background: var(--primary);
+    transition: all 1s ease-in-out;
+    box-shadow: 0 0 10px var(--shadow-color);
+    border-radius: 15px;
+}
+
+/* Remove transition delay from here */
+.envelope-wrapper.flap > .envelope > .letter {
+    z-index: 2;
+}
+.letter > .text{
+    font-family: "Itim", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 10px;
+    color: var(--txt-color);
+    text-align: left;
+    border-radius: 15px;
+    margin: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    border: 1px solid #003049;
+    border-style: dashed;
+}
+.heading{
+    text-align: center;
+    font-size: 14px;
+}
+.heart{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20000px;
+    height: 20000px;
+    background: transparent;
+    z-index: 4;
+    transform: translate(-50%, -20%) rotate(45deg);
+    transition: transform 0.5s ease-in-out 1s;
+    /*box-shadow: 0 0 10px var(--shadow-color);*/
+    cursor: pointer;
+}
+.heart::before,
+.heart::after{
+    content: '';
+    position: absolute;
+    width: 15000px;
+    height: 15000px;
+    background: transparent;
+    border-radius: 50%;
+}
+.heart::before{
+    top: -7.5px;
+}
+.heart::after{
+    right: 7.5px;
+}
+/*
+.flap > .envelope::before{
+    z-index: 0;
+    transform: rotatex(180deg);
+}
+*/
+/* Ensure flap is on top at first */
+.envelope > .letter {
+    z-index: 0; /* Start below flap */
+    position: absolute;
+    bottom: 0;
+    transition: all 1s ease-in-out;
+    border-radius: 15px;
+}
+
+/* When opening, bring the letter up after flap finishes */
+.envelope-wrapper.flap > .envelope > .letter {
+    z-index: 2; /* Move letter on top AFTER flap opens */
+    bottom: 180px;
+    transform: scale(1.5);
+    transition-delay: 0.6s; /* Delay to allow flap to move first */
+}
+
+/* Ensure the flap stays on top while opening */
+.envelope-wrapper > .envelope::before {
+    z-index: 3; /* Keep flap above the letter until it rotates */
+    transition: all 0.5s ease-in-out;
+}
+
+/* When flap is fully open, move it behind */
+.envelope-wrapper.flap > .envelope::before {
+    z-index: 0; /* Move flap to the back */
+    transform: rotateX(180deg);
+}
+/*
+.flap > .heart{
+    transform: rotate(90deg);
+    transition-delay: 0.4s;
+}
+*/
+.envelope-wrapper.flap > .heart{
+    transform: rotate(90deg);
+    transition-delay: 0.2s;
+}
+@keyframes bounce{
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+}
+@keyframes scale{
+    0%, 100%{
+        transform: scaleX(1);
+    }
+    50%{
+        transform: scaleX(.85);
+    }
+}
