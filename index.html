@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Happy Birthday</title>
+        <link rel="stylesheet" href="./style.css">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+    </style>
+    <body>
+        <div class="container">
+            <div class="envelope-wrapper">
+                <div class="envelope">
+                    <div class="letter">
+                        <div class="text">
+                            <h2 class="heading">Happy 23<sup>th</sup> Birthday </h2>
+                            <p>
+                                สุขสันต์วันเกิดนะคับ ขอให้น้องเน้ยเก็บรอยยิ้มที่สดใสที่มีนี้ไว้นาน ๆ นะ มีความสุขมาก ๆ เรื่องเครียดเรื่องกังวลอะไรที่กวนใจเน้ยอยู่ถ้าตัดออกไปได้ก็ตัดออกไปนะคับ แต่ถ้าตัดไม่ได้ก็ขอให้ไม่กวนใจเน้ยมากเกินไปจนทำให้ความสดใสของเน้ยต้องลดลงนะ ขอบคุณที่เป็นคนที่น่ารักมาก ๆ คอยเอาใจใส่คนรอบตัวมาตลอดและเป็นกำลังใจให้ชั้นในวันที่เครียด ขอให้ทุกวันเป็นวันที่น่ารักและใจดีกับเน้ยนะคับ มีอะไรปรึกษาชั้นได้ตลอดเลยนะ ถึงบางเรื่องจะเป็นที่ปรึกษาให้ไม่ได้แต่เป็นผู้ฟังที่ดีให้ได้นะ55555555 ใด ๆ คือมีความสุขในวันเกิดนะคับ ยิ้มเยอะ ๆ นะคับ
+                            </p>
+                            <p class="sign">
+                                <br>02.02.2025
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="heart"></div>
+            </div>
+        </div>
+        <script>
+            /*const envelope = document.querySelector('.envelope-wrapper');
+            envelope.addEventListener('click', () => {
+                envelope.classList.toggle('flap');
+            });*/
+            const envelope = document.querySelector('.envelope-wrapper');
+            const heart = document.querySelector('.heart');
+
+            heart.addEventListener('click', () => {
+            envelope.classList.toggle('flap');
+            });
+        </script>
+    </body>
+</html>
